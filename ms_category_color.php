@@ -59,15 +59,11 @@ class Ms_category_color extends Module
      */
     public function install()
     {
-        Configuration::updateValue('MS_CATEGORY_COLOR_LIVE_MODE', false);
-
         return parent::install();
     }
 
     public function uninstall()
     {
-        Configuration::deleteByName('MS_CATEGORY_COLOR_LIVE_MODE');
-
         return parent::uninstall();
     }
 }
