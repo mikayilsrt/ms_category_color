@@ -83,7 +83,7 @@ class Ms_category_color extends Module
         $category = new Category($params['id']);
 
         $formBuilder->add('category_color', ColorType::class, [
-            'label' =>  $this->l('Color Category'),
+            'label' =>  $this->l('Couleur de la catégorie'),
             'help'  =>  $this->l('Couleur actuelle : ' . $category->category_color),
             'required'  =>  false,
         ]);
