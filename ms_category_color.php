@@ -1,4 +1,6 @@
 <?php
+use Symfony\Component\Form\Extension\Core\Type\ColorType;
+
 /**
 * 2007-2020 PrestaShop
 *
@@ -76,7 +78,14 @@ class Ms_category_color extends Module
 
     public function hookActionCategoryformBuilderModifier(array $params)
     {
-        //
+        $formBuilder = $params['form_builder'];
+
+        $formBuilder->add('color_category', ColorType::class, [
+            'label' =>  $this->l('Color Category'),
+            'required'  =>  false,
+        ]);
+
+        $formBuilder->setData($params['data']);
     }
 
     public function hookActionAfterCreateCategoryFormHandler(array $params)
