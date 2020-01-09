@@ -80,7 +80,7 @@ class Ms_category_color extends Module
     {
         $formBuilder = $params['form_builder'];
 
-        $formBuilder->add('color_category', ColorType::class, [
+        $formBuilder->add('category_color', ColorType::class, [
             'label' =>  $this->l('Color Category'),
             'required'  =>  false,
         ]);
