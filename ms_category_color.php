@@ -90,11 +90,18 @@ class Ms_category_color extends Module
 
     public function hookActionAfterCreateCategoryFormHandler(array $params)
     {
-        //
+        $this->updateData($params);
     }
 
     public function hookActionAfterUpdateCategoryFormHandler(array $params)
     {
-        //
+        $this->updateData($params);
+    }
+
+    private function updateData(array $data)
+    {
+        $category = new Category($data['id']);
+        $category->category_color = $data['form_data']['category_color'];
+        $category->save();
     }
 }
