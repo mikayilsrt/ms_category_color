@@ -61,7 +61,10 @@ class Ms_category_color extends Module
     {
         include(dirname(__FILE__).'/sql/install.php');
 
-        return parent::install();
+        return parent::install() &&
+            $this->registerHook('actionCategoryformBuilderModifier') &&
+            $this->registerHook('actionAfterCreateCategoryFormHandler') &&
+            $this->registerHook('actionAfterUpdateCategoryFormHandler');
     }
 
     public function uninstall()
@@ -69,5 +72,20 @@ class Ms_category_color extends Module
         include(dirname(__FILE__).'/sql/uninstall.php');
         
         return parent::uninstall();
+    }
+
+    public function hookActionCategoryformBuilderModifier(array $params)
+    {
+        //
+    }
+
+    public function hookActionAfterCreateCategoryFormHandler(array $params)
+    {
+        //
+    }
+
+    public function hookActionAfterUpdateCategoryFormHandler(array $params)
+    {
+        //
     }
 }
