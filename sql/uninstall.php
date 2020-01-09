@@ -31,6 +31,8 @@
  */
 $sql = array();
 
+$sql[] = 'ALTER TABLE `' . _DB_PREFIX_ . 'category` DROP `category_color`';
+
 foreach ($sql as $query) {
     if (Db::getInstance()->execute($query) == false) {
         return false;
