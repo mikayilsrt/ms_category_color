@@ -1,0 +1,1 @@
+# Custom color to each category
