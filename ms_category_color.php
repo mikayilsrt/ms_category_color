@@ -78,9 +78,16 @@ class Ms_category_color extends Module
 
         $category = new Category($params['id']);
 
+        if ($category->category_color == null)
+        {
+            $color = "#000000";
+        } else {
+            $color = $category->category_color;
+        }
+
         $formBuilder->add('category_color', ColorType::class, [
             'label' =>  $this->l('Couleur de la catégorie'),
-            'help'  =>  $this->l('Couleur actuelle : ' . $category->category_color),
+            'help'  =>  $this->l('Couleur actuelle : ' . $color),
             'required'  =>  false,
         ]);
         
