@@ -25,7 +25,8 @@
 */
 $sql = array();
 
-$sql[] = 'ALTER TABLE `' . _DB_PREFIX_ . 'category` ADD `category_color` VARCHAR(255)';
+$sql[] = 'ALTER TABLE `' . _DB_PREFIX_ . 'category` ADD `category_color` VARCHAR(255) DEFAULT NULL';
+$sql[] = 'ALTER TABLE `' . _DB_PREFIX_ . 'category` ADD `display_color` BOOLEAN DEFAULT false';
 
 foreach ($sql as $query) {
     if (Db::getInstance()->execute($query) == false) {

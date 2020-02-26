@@ -1,4 +1,6 @@
 <?php
+
+use PrestaShopBundle\Form\Admin\Type\SwitchType;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
 
 /**
@@ -91,7 +93,17 @@ class Ms_category_color extends Module
             'required'  =>  false,
         ]);
         
+        $formBuilder->add('display_color', SwitchType::class, [
+            'choices' => [
+                'off' => false,
+                'on' => true
+            ],
+            'label' => 'Affichée la couleur',
+            'required' => false,
+        ]);
+
         $params['data']['category_color'] = $category->category_color;
+        $params['data']['display_color'] = $category->display_color;
 
         $formBuilder->setData($params['data']);
     }
@@ -110,6 +122,7 @@ class Ms_category_color extends Module
     {
         $category = new Category($data['id']);
         $category->category_color = $data['form_data']['category_color'];
+        $category->display_color = $data['form_data']['display_color'];
         $category->save();
     }
 }

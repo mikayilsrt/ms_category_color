@@ -13,6 +13,11 @@ class Category extends CategoryCore
             'size'  =>  255,
         );
 
+        self::$definition['fields']['display_color'] = array(
+            'type'  =>  self::TYPE_BOOL,
+            'validate' => 'isBool',
+        );
+
         parent::__construct($idCategory, $idLang, $idShop);
     }
 
